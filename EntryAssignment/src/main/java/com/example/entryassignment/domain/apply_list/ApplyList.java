@@ -1,0 +1,36 @@
+package com.example.entryassignment.domain.apply_list;
+
+import com.example.entryassignment.domain.user.domain.User;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+public class ApplyList {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(length = 60, nullable = false)
+    private String title;
+
+    @Column(length = 20, nullable = false)
+    private String isbn;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
+
+    @Builder
+    public ApplyList(String title, String isbn, User user){
+        this.title = title;
+        this.isbn = isbn;
+        this.user = user;
+    }
+}
