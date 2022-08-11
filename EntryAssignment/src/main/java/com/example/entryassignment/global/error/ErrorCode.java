@@ -20,7 +20,7 @@ public enum ErrorCode {
 
     INVALID_REFRESH_TOKEN(401, "Invalid Refresh Token"),
 
-    AUTH_NOT_FOUND(404, "Auth Not Found"),
+    USER_NOT_FOUND(404, "User Not Found"),
 
     BOOK_IS_NOT_EXIST(404, "Book is Not Exist"),
     BOOK_NOT_FOUND(404, "Book Not Found"),
