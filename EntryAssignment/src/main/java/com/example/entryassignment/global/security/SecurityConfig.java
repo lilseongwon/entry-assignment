@@ -1,7 +1,5 @@
 package com.example.entryassignment.global.security;
 
-import com.example.entryassignment.global.error.ExceptionFilter;
-import com.example.entryassignment.global.security.jwt.FilterConfig;
 import com.example.entryassignment.global.security.jwt.JwtTokenProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
