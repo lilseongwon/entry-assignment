@@ -1,5 +1,10 @@
 package com.example.entryassignment.global.security;
 
+import com.example.entryassignment.global.error.ExceptionFilter;
+import com.example.entryassignment.global.security.jwt.FilterConfig;
+import com.example.entryassignment.global.security.jwt.JwtTokenProvider;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,7 +16,11 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final JwtTokenProvider jwtTokenProvider;
+    private final ObjectMapper objectMapper;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -32,6 +41,8 @@ public class SecurityConfig {
 
                 .anyRequest().authenticated()
 
+                .and()
+                .apply(new FilterConfig(jwtTokenProvider, objectMapper))
                 .and().build();
     }
 
