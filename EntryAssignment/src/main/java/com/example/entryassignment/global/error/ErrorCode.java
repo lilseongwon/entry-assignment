@@ -27,7 +27,7 @@ public enum ErrorCode {
 
     REFRESH_TOKEN_NOT_FOUND(404, "RefreshToken Not Found"),
 
-    EMAIL_EXIST(409, "Email Exist"),
+    USER_EXIST(409, "User Exist"),
 
     ALREADY_BOOK_EXIST(409, "Already Book Exist"),
     ALREADY_BOOK_IS_ON_LOAN(409, "Already Book is On Loan"),
