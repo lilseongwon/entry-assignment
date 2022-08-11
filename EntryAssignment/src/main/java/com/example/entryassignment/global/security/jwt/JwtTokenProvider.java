@@ -2,7 +2,7 @@ package com.example.entryassignment.global.security.jwt;
 
 import com.example.entryassignment.domain.auth.domain.RefreshToken;
 import com.example.entryassignment.domain.auth.domain.repository.RefreshTokenRepository;
-import com.example.entryassignment.domain.user.presentation.dto.response.TokenResponse;
+import com.example.entryassignment.domain.auth.presentation.dto.response.TokenResponse;
 import com.example.entryassignment.global.exception.ExpiredJwtException;
 import com.example.entryassignment.global.exception.InvalidJwtException;
 import com.example.entryassignment.global.exception.SignatureJwtException;
