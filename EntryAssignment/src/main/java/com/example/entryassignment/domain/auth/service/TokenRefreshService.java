@@ -2,7 +2,7 @@ package com.example.entryassignment.domain.auth.service;
 
 import com.example.entryassignment.domain.auth.domain.RefreshToken;
 import com.example.entryassignment.domain.auth.domain.repository.RefreshTokenRepository;
-import com.example.entryassignment.domain.user.presentation.dto.response.TokenResponse;
+import com.example.entryassignment.domain.auth.presentation.dto.response.TokenResponse;
 import com.example.entryassignment.global.exception.InvalidRefreshTokenException;
 import com.example.entryassignment.global.exception.RefreshTokenNotFoundException;
 import com.example.entryassignment.global.security.jwt.JwtProperties;
@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
-public class ReissueService {
+public class TokenRefreshService {
 
     private final RefreshTokenRepository refreshTokenRepository;
     private final JwtTokenProvider jwtTokenProvider;
@@ -22,7 +22,7 @@ public class ReissueService {
 
 
     @Transactional
-    public TokenResponse userReissue(String refreshToken) {
+    public TokenResponse execute(String refreshToken) {
         return reIssue(refreshToken);
     }
 
