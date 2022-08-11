@@ -3,7 +3,7 @@ package com.example.entryassignment.domain.user.service;
 import com.example.entryassignment.domain.user.domain.User;
 import com.example.entryassignment.domain.user.domain.repository.UserRepository;
 import com.example.entryassignment.domain.user.exception.UserExistException;
-import com.example.entryassignment.domain.user.presentation.dto.request.SignupRequestDto;
+import com.example.entryassignment.domain.user.presentation.dto.request.UserSignupRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class UserSignupService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
 
-    public String execute(SignupRequestDto requestDto) {
+    public String execute(UserSignupRequestDto requestDto) {
         Optional<User> user = userRepository.findByAccountId(requestDto.getAccountId());
         if (user.isPresent())
             throw UserExistException.EXCEPTION;
