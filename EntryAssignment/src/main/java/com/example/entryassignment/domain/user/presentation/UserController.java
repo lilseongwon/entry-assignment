@@ -1,5 +1,6 @@
 package com.example.entryassignment.domain.user.presentation;
 
+import com.example.entryassignment.domain.user.service.MemberWithdrawlService;
 import com.example.entryassignment.domain.user.service.QueryMyInformationService;
 import com.example.entryassignment.domain.user.presentation.dto.request.UserSignupRequest;
 import com.example.entryassignment.domain.user.presentation.dto.response.QueryMyInformationResponse;
@@ -15,6 +16,7 @@ import javax.validation.Valid;
 public class UserController {
     private final UserSignupService userSignupService;
     private final QueryMyInformationService queryMyInformationService;
+    private final MemberWithdrawlService memberWithdrawlService;
 
     @PostMapping("/signup")
     public String userSignup(@RequestBody @Valid UserSignupRequest request) {
@@ -26,5 +28,9 @@ public class UserController {
         return queryMyInformationService.execute();
     }
 
+    @DeleteMapping("/delete")
+    public String memberWithdrawl() {
+        return memberWithdrawlService.execute();
+    }
 }
 
