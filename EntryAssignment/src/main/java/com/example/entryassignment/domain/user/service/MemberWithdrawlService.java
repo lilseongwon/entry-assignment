@@ -5,6 +5,7 @@ import com.example.entryassignment.domain.user.domain.repository.UserRepository;
 import com.example.entryassignment.global.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -13,6 +14,7 @@ public class MemberWithdrawlService {
     private final UserRepository userRepository;
     private final UserFacade userFacade;
 
+    @Transactional
     public String execute(){
         User user = userFacade.getCurrentUser();
 

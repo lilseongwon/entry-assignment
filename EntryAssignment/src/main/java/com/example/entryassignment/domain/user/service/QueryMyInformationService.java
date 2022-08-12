@@ -5,6 +5,7 @@ import com.example.entryassignment.domain.user.presentation.dto.response.QueryMy
 import com.example.entryassignment.global.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -12,6 +13,7 @@ public class QueryMyInformationService {
 
     private final UserFacade userFacade;
 
+    @Transactional
     public QueryMyInformationResponse execute(){
         User user = userFacade.getCurrentUser();
 

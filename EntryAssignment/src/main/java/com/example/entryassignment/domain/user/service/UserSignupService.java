@@ -7,6 +7,7 @@ import com.example.entryassignment.domain.user.presentation.dto.request.UserSign
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ public class UserSignupService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
 
+    @Transactional
     public String execute(UserSignupRequest request) {
         Optional<User> user = userRepository.findByAccountId(request.getAccountId());
         if (user.isPresent())
