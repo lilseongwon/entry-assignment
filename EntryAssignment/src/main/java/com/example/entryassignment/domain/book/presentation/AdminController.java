@@ -3,16 +3,13 @@ package com.example.entryassignment.domain.book.presentation;
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminAddBookRequest;
 import com.example.entryassignment.domain.book.service.AdminAddBookService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/book")
 public class AdminController {
     private final AdminAddBookService adminAddBookService;
 
