@@ -20,12 +20,12 @@ public class UserSignInService {
     private final JwtTokenProvider jwtTokenProvider;
 
     @Transactional
-    public TokenResponse execute(SignInRequest signInRequestDto) {
+    public TokenResponse execute(SignInRequest request) {
 
-        User user = userRepository.findByAccountId(signInRequestDto.getAccountId())
+        User user = userRepository.findByAccountId(request.getAccountId())
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
 
-        if (!passwordEncoder.matches(user.getPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw PasswordMismatchException.EXCEPTION;
         }
 
