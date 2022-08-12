@@ -23,7 +23,7 @@ public class UpdatePasswordService {
             throw PasswordMismatchException.EXCEPTION;
         }
 
-        user.changePassword(request.getNewPassword());
+        user.changePassword(passwordEncoder.encode(request.getNewPassword()));
 
         return "비밀번호 변경이 완료되었습니다.";
     }
