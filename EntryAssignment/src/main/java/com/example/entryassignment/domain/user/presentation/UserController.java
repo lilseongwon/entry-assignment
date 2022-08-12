@@ -1,6 +1,6 @@
 package com.example.entryassignment.domain.user.presentation;
 
-import com.example.entryassignment.domain.user.presentation.dto.request.SignupRequestDto;
+import com.example.entryassignment.domain.user.presentation.dto.request.UserSignupRequestDto;
 import com.example.entryassignment.domain.user.service.UserSignupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,8 @@ public class UserController {
     private final UserSignupService userSignupService;
 
     @PostMapping("/signup")
-    public String signup(@RequestBody @Valid SignupRequestDto signupRequestDto) {
+    public String userSignup(@RequestBody @Valid UserSignupRequestDto signupRequestDto) {
         return userSignupService.execute(signupRequestDto);
     }
+}
 
