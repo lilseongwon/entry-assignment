@@ -9,7 +9,7 @@ import javax.validation.constraints.Pattern;
 @Getter
 @NoArgsConstructor
 @NotBlank
-public class UserSignupRequestDto {
+public class UserSignupRequest {
 
     @NotBlank(message = "아이디는 공백, 띄어쓰기를 허용하지 않습니다.")
     @Pattern(regexp = "^[a-z0-9-_]{8,20}$", message = "아이디는 영어와 숫자를 조합한 8~20자리여야 합니다.")
