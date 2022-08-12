@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class AuthenticationFacade {
+public class UserFacade {
     private final UserRepository userRepository;
 
     public User getCurrentUser() {
