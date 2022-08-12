@@ -20,7 +20,7 @@ public class AuthController {
     public TokenResponse userSignIn(@RequestBody @Valid SignInRequest signInRequest) {
         return userSignInService.execute(signInRequest);
     }
-    @PatchMapping
+    @PatchMapping("token")
     public TokenResponse Reisssu(@RequestHeader("Refresh-Token") String refreshToken){
         return tokenRefreshService.execute(refreshToken);
     }
