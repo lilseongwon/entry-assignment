@@ -1,6 +1,6 @@
 package com.example.entryassignment.domain.auth.service;
 
-import com.example.entryassignment.domain.auth.presentation.dto.request.SignInRequestDto;
+import com.example.entryassignment.domain.auth.presentation.dto.request.SignInRequest;
 import com.example.entryassignment.domain.user.domain.User;
 import com.example.entryassignment.domain.user.domain.repository.UserRepository;
 import com.example.entryassignment.domain.auth.presentation.dto.response.TokenResponse;
@@ -20,7 +20,7 @@ public class UserSignInService {
     private final JwtTokenProvider jwtTokenProvider;
 
     @Transactional
-    public TokenResponse execute(SignInRequestDto signInRequestDto) {
+    public TokenResponse execute(SignInRequest signInRequestDto) {
 
         User user = userRepository.findByAccountId(signInRequestDto.getAccountId())
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
