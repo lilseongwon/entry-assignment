@@ -10,11 +10,12 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/book")
-public class AdminController {
+public class BookController{
     private final AdminAddBookService adminAddBookService;
 
     @PostMapping("/add")
     public String addBook(@RequestBody @Valid AdminAddBookRequest request){
         return adminAddBookService.execute(request);
     }
+    @Pa
 }
