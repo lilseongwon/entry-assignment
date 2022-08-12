@@ -1,9 +1,11 @@
 package com.example.entryassignment.domain.user.presentation;
 
+import com.example.entryassignment.domain.user.presentation.dto.request.UpdatePasswordRequest;
 import com.example.entryassignment.domain.user.service.MemberWithdrawlService;
 import com.example.entryassignment.domain.user.service.QueryMyInformationService;
 import com.example.entryassignment.domain.user.presentation.dto.request.UserSignupRequest;
 import com.example.entryassignment.domain.user.presentation.dto.response.QueryMyInformationResponse;
+import com.example.entryassignment.domain.user.service.UpdatePasswordService;
 import com.example.entryassignment.domain.user.service.UserSignupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,7 @@ public class UserController {
     private final UserSignupService userSignupService;
     private final QueryMyInformationService queryMyInformationService;
     private final MemberWithdrawlService memberWithdrawlService;
+    private final UpdatePasswordService updatePasswordService;
 
     @PostMapping("/signup")
     public String userSignup(@RequestBody @Valid UserSignupRequest request) {
@@ -31,6 +34,10 @@ public class UserController {
     @DeleteMapping("/delete")
     public String memberWithdrawl() {
         return memberWithdrawlService.execute();
+    }
+    @PatchMapping("/password")
+    public String UpdatePassword(@RequestBody @Valid UpdatePasswordRequest request){
+        return updatePasswordService.execute(request);
     }
 }
 
