@@ -1,7 +1,9 @@
 package com.example.entryassignment.domain.book.presentation;
 
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminAddBookRequest;
+import com.example.entryassignment.domain.book.presentation.dto.request.AdminUpdateBookRequest;
 import com.example.entryassignment.domain.book.service.AdminAddBookService;
+import com.example.entryassignment.domain.book.service.AdminUpdateBookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +14,15 @@ import javax.validation.Valid;
 @RequestMapping("/book")
 public class BookController{
     private final AdminAddBookService adminAddBookService;
+    private final AdminUpdateBookService adminUpdateBookService;
 
     @PostMapping("/add")
-    public String addBook(@RequestBody @Valid AdminAddBookRequest request){
+    public String addBook(@RequestBody @Valid AdminAddBookRequest request) {
         return adminAddBookService.execute(request);
     }
-    @Pa
+
+    @PatchMapping("/update")
+    public String updateBook(@RequestBody @Valid AdminUpdateBookRequest request){
+        return adminUpdateBookService.execute(request);
+    }
 }
