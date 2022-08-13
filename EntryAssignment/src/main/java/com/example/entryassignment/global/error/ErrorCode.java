@@ -19,14 +19,12 @@ public enum ErrorCode {
     USER_NOT_FOUND(404, "User Not Found"),
 
     BOOK_IS_NOT_EXIST(404, "Book is Not Exist"),
-    BOOK_NOT_FOUND(404, "Book Not Found"),
 
     REFRESH_TOKEN_NOT_FOUND(404, "RefreshToken Not Found"),
 
     USER_EXIST(409, "User Exist"),
 
     ALREADY_BOOK_EXIST(409, "Already Book Exist"),
-    ALREADY_BOOK_IS_ON_LOAN(409, "Already Book is On Loan"),
     ALREADY_APPLIED(409, "Already Applied"),
 
     INTERNAL_SERVER_ERROR(500, "Internal Server Error");
