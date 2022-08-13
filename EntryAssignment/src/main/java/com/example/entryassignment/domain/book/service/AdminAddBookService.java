@@ -4,8 +4,10 @@ import com.example.entryassignment.domain.book.domain.Book;
 import com.example.entryassignment.domain.book.domain.repository.BookRepository;
 import com.example.entryassignment.domain.book.exception.AlreadyBookExistExcpetion;
 import com.example.entryassignment.domain.book.exception.NoPermissionException;
+import com.example.entryassignment.domain.book.facade.AdminFacade;
+import com.example.entryassignment.domain.book.facade.BookFacade;
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminAddBookRequest;
-import com.example.entryassignment.global.facade.UserFacade;
+import com.example.entryassignment.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,16 +17,15 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class AdminAddBookService {
-    private final UserFacade userFacade;
+    private final AdminFacade adminFacade;
+    private final BookFacade bookFacade;
     private final BookRepository bookRepository;
 
     public String execute(AdminAddBookRequest request){
-        if(!(Objects.equals(userFacade.getCurrentUser().getAccountId(), System.getenv("ADMIN"))))
-            throw NoPermissionException.EXCEPTION;
 
-        Optional<Book> book = bookRepository.findByTitleAndIsbn(request.getTitle(), request.getIsbn());
-        if(book.isPresent())
-            throw AlreadyBookExistExcpetion.EXCPETION;
+        adminFacade.checkPermission();
+
+        bookFacade.checkBookExist(request.getTitle(), request.getIsbn());
 
         bookRepository.save(
                 Book.builder()
