@@ -1,10 +1,9 @@
 package com.example.entryassignment.domain.user.service;
 
 import com.example.entryassignment.domain.user.domain.User;
-import com.example.entryassignment.domain.user.domain.repository.UserRepository;
 import com.example.entryassignment.domain.user.exception.PasswordMismatchException;
 import com.example.entryassignment.domain.user.presentation.dto.request.UpdatePasswordRequest;
-import com.example.entryassignment.global.facade.UserFacade;
+import com.example.entryassignment.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

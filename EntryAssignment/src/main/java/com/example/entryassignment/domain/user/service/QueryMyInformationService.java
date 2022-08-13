@@ -2,7 +2,7 @@ package com.example.entryassignment.domain.user.service;
 
 import com.example.entryassignment.domain.user.domain.User;
 import com.example.entryassignment.domain.user.presentation.dto.response.QueryMyInformationResponse;
-import com.example.entryassignment.global.facade.UserFacade;
+import com.example.entryassignment.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
