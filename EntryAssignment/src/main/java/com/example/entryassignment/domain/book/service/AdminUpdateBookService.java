@@ -18,7 +18,7 @@ public class AdminUpdateBookService {
     public String execute(AdminUpdateBookRequest request){
         adminFacade.checkPermission();
 
-        bookFacade.getBookByTitleAndIsbn(request.getTitle(), request.getIsbn())
+        bookFacade.getBookByIsbn(request.getIsbn())
                 .update(request.getTitle(), request.getPicture(), request.getAuthor(),
                         request.getIsbn(), request.getPublisher(), request.getGenre());;
 

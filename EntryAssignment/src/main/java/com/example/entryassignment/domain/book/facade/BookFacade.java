@@ -18,7 +18,7 @@ public class BookFacade {
             throw AlreadyBookExistExcpetion.EXCPETION;
     }
 
-    public Book getBookByTitleAndIsbn(String title, String isbn){
+    public Book getBookByIsbn(String isbn){
         return bookRepository.findByIsbn(isbn)
                 .orElseThrow(() -> BookIsNotExistException.EXCEPTION);
     }
