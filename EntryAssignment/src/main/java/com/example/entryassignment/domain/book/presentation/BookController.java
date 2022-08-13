@@ -2,11 +2,9 @@ package com.example.entryassignment.domain.book.presentation;
 
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminAddBookRequest;
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminUpdateBookRequest;
+import com.example.entryassignment.domain.book.presentation.dto.response.QueryBookInfoListResponse;
 import com.example.entryassignment.domain.book.presentation.dto.response.QueryNaverBookInfoResponse;
-import com.example.entryassignment.domain.book.service.AdminAddBookService;
-import com.example.entryassignment.domain.book.service.AdminUpdateBookService;
-import com.example.entryassignment.domain.book.service.DeleteBookService;
-import com.example.entryassignment.domain.book.service.QueryNaverBookInfoService;
+import com.example.entryassignment.domain.book.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,11 +13,12 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/book")
-public class BookController{
+public class BookController {
     private final AdminAddBookService adminAddBookService;
     private final AdminUpdateBookService adminUpdateBookService;
     private final DeleteBookService deleteBookService;
     private final QueryNaverBookInfoService queryNaverBookInfoService;
+    private final QueryBookInfoService queryBookInfoService;
 
     @PostMapping("/add")
     public String addBook(@RequestBody @Valid AdminAddBookRequest request) {
@@ -27,17 +26,22 @@ public class BookController{
     }
 
     @PatchMapping("/update")
-    public String updateBook(@RequestBody @Valid AdminUpdateBookRequest request){
+    public String updateBook(@RequestBody @Valid AdminUpdateBookRequest request) {
         return adminUpdateBookService.execute(request);
     }
 
     @DeleteMapping("/delete/{book-id}")
-    public String deleteBook(@PathVariable(name = "book-id") Long id){
+    public String deleteBook(@PathVariable(name = "book-id") Long id) {
         return deleteBookService.execute(id);
     }
 
     @GetMapping("/naverbook/{keyword}")
-    public QueryNaverBookInfoResponse QueryNaverBookInfo(@PathVariable String keyword){
+    public QueryNaverBookInfoResponse queryNaverBookInfo(@PathVariable String keyword) {
         return queryNaverBookInfoService.execute(keyword);
+    }
+
+    @GetMapping("/info/{keyword}")
+    public QueryBookInfoListResponse queryBookInfo(@PathVariable String keyword) {
+        return queryBookInfoService.execute(keyword);
     }
 }
