@@ -14,5 +14,6 @@ public class QueryNaverBookInfoResponse {
         private String image;
         private String author;
         private String isbn;
+        private String publisher;
     }
 }
