@@ -8,4 +8,7 @@ import java.util.Optional;
 public interface ApplyListReposiroty extends JpaRepository<ApplyList, Long> {
 
     Optional<ApplyList> findByIsbn(String isbn);
+
+    ApplyList findApplyListByIsbn(String isbn);
+
 }
