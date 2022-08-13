@@ -20,9 +20,9 @@ public class ApplyBookService {
     private final ApplyListReposiroty applyListReposiroty;
 
     public String execute(ApplyBookRequest request) {
-        bookFacade.checkBookExist(request.getTitle(), request.getIsbn());
+        bookFacade.checkBookExist(request.getIsbn());
 
-        applyListFacade.checkApplyExist(request.getTitle(), request.getIsbn());
+        applyListFacade.checkApplyExist(request.getIsbn());
 
         User user = userFacade.getCurrentUser();
 

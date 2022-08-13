@@ -29,7 +29,7 @@ public class AdminAddBookService {
 
         adminFacade.checkPermission();
 
-        bookFacade.checkBookExist(request.getTitle(), request.getIsbn());
+        bookFacade.checkBookExist(request.getIsbn());
 
         bookRepository.save(
                 Book.builder()
