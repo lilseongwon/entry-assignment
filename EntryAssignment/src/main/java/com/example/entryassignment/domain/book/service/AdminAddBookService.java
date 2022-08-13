@@ -3,7 +3,7 @@ package com.example.entryassignment.domain.book.service;
 import com.example.entryassignment.domain.book.domain.Book;
 import com.example.entryassignment.domain.book.domain.repository.BookRepository;
 import com.example.entryassignment.domain.book.exception.AlreadyBookExistExcpetion;
-import com.example.entryassignment.domain.book.exception.NoPermissionToAddBookException;
+import com.example.entryassignment.domain.book.exception.NoPermissionException;
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminAddBookRequest;
 import com.example.entryassignment.global.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class AdminAddBookService {
 
     public String execute(AdminAddBookRequest request){
         if(!(Objects.equals(userFacade.getCurrentUser().getAccountId(), System.getenv("ADMIN"))))
-            throw NoPermissionToAddBookException.EXCEPTION;
+            throw NoPermissionException.EXCEPTION;
 
         Optional<Book> book = bookRepository.findByTitleAndIsbn(request.getTitle(), request.getIsbn());
         if(book.isPresent())

@@ -12,11 +12,7 @@ public enum ErrorCode {
     SIGNATURE_JWT(401, "Signature Jwt"),
     INVALID_JWT(401, "Invalid Jwt"),
 
-    NO_PERMISSION_TO_ADD_BOOK(401, "No Permission To Add Book"),
-    NO_PERMISSION_TO_MODIFY_BOOK(401, "No Permission To Modify Book"),
-    NO_PERMISSION_TO_DELETE_BOOK(401, "No Permission To Delete Book"),
-    NO_PERMISSION_TO_CHECK_APPLY_LIST(401, "No Permission To Check Apply List"),
-    NO_PERMISSION_TO_CHECK_USER_INFO(401, "No Permission To Check User Info"),
+    NO_PERMISSION(401, "No Permission"),
 
     INVALID_REFRESH_TOKEN(401, "Invalid Refresh Token"),
 
