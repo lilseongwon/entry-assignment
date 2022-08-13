@@ -3,6 +3,7 @@ package com.example.entryassignment.domain.book.presentation;
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminAddBookRequest;
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminUpdateBookRequest;
 import com.example.entryassignment.domain.book.presentation.dto.request.ApplyBookRequest;
+import com.example.entryassignment.domain.book.presentation.dto.response.QueryApplyInfoListResponse;
 import com.example.entryassignment.domain.book.presentation.dto.response.QueryBookInfoListResponse;
 import com.example.entryassignment.domain.book.presentation.dto.response.QueryNaverBookInfoResponse;
 import com.example.entryassignment.domain.book.service.*;
@@ -21,6 +22,7 @@ public class BookController {
     private final QueryNaverBookInfoService queryNaverBookInfoService;
     private final QueryBookInfoService queryBookInfoService;
     private final ApplyBookService applyBookService;
+    private final QueryApplyListService queryApplyListService;
 
     @PostMapping("/add")
     public String addBook(@RequestBody @Valid AdminAddBookRequest request) {
@@ -50,5 +52,10 @@ public class BookController {
     @PostMapping("/apply")
     public String applyBook(@RequestBody @Valid ApplyBookRequest request) {
         return applyBookService.execute(request);
+    }
+
+    @GetMapping("/apply")
+    public QueryApplyInfoListResponse queryApplyList() {
+        return queryApplyListService.execute();
     }
 }

@@ -3,6 +3,7 @@ package com.example.entryassignment.domain.book.domain.repository;
 import com.example.entryassignment.domain.book.domain.ApplyList;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ApplyListReposiroty extends JpaRepository<ApplyList, Long> {
@@ -10,5 +11,7 @@ public interface ApplyListReposiroty extends JpaRepository<ApplyList, Long> {
     Optional<ApplyList> findByIsbn(String isbn);
 
     ApplyList findApplyListByIsbn(String isbn);
+
+    List<ApplyList> findAllByOrderById();
 
 }
