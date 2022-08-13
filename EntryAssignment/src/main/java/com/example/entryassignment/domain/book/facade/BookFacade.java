@@ -22,4 +22,9 @@ public class BookFacade {
         return bookRepository.findByTitleAndIsbn(title, isbn)
                 .orElseThrow(() -> BookIsNotExistException.EXCEPTION);
     }
+
+    public Book getBookById(Long id){
+        return bookRepository.findById(id)
+                .orElseThrow(() -> BookIsNotExistException.EXCEPTION);
+    }
 }
