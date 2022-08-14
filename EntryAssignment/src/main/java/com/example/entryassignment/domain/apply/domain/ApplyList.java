@@ -1,4 +1,4 @@
-package com.example.entryassignment.domain.book.domain;
+package com.example.entryassignment.domain.apply.domain;
 
 import com.example.entryassignment.domain.user.domain.User;
 import lombok.AccessLevel;

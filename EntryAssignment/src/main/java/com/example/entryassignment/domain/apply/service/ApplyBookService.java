@@ -1,7 +1,7 @@
-package com.example.entryassignment.domain.book.service;
+package com.example.entryassignment.domain.apply.service;
 
-import com.example.entryassignment.domain.book.domain.ApplyList;
-import com.example.entryassignment.domain.book.domain.repository.ApplyListReposiroty;
+import com.example.entryassignment.domain.apply.domain.ApplyList;
+import com.example.entryassignment.domain.apply.domain.repository.ApplyListReposiroty;
 import com.example.entryassignment.domain.book.facade.ApplyListFacade;
 import com.example.entryassignment.domain.book.facade.BookFacade;
 import com.example.entryassignment.domain.book.presentation.dto.request.ApplyBookRequest;

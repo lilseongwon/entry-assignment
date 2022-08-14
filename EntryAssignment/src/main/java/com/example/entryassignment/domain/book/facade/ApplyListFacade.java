@@ -1,8 +1,7 @@
 package com.example.entryassignment.domain.book.facade;
 
-import com.example.entryassignment.domain.book.domain.ApplyList;
-import com.example.entryassignment.domain.book.domain.repository.ApplyListReposiroty;
-import com.example.entryassignment.domain.book.exception.AlreadyAppliedException;
+import com.example.entryassignment.domain.apply.domain.repository.ApplyListReposiroty;
+import com.example.entryassignment.domain.apply.exception.AlreadyAppliedException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.example.entryassignment.domain.book.exception;
+package com.example.entryassignment.domain.apply.exception;
 
 import com.example.entryassignment.global.error.CustomException;
 import com.example.entryassignment.global.error.ErrorCode;

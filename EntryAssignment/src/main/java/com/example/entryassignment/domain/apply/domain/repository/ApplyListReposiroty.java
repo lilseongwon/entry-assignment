@@ -1,6 +1,6 @@
-package com.example.entryassignment.domain.book.domain.repository;
+package com.example.entryassignment.domain.apply.domain.repository;
 
-import com.example.entryassignment.domain.book.domain.ApplyList;
+import com.example.entryassignment.domain.apply.domain.ApplyList;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
