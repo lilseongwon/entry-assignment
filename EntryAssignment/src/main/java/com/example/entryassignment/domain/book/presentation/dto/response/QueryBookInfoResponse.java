@@ -14,7 +14,7 @@ public class QueryBookInfoResponse {
 
     private final String author;
 
-    private final Integer isbn;
+    private final String isbn;
 
     private final String publisher;
 

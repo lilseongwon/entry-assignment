@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
 public class ApplyFacade {
     private final ApplyRepository applyRepository;
 
-    public void checkApplyExist(Integer isbn) {
+    public void checkApplyExist(String isbn) {
         if (applyRepository.findByIsbn(isbn).isPresent())
             throw AlreadyAppliedException.EXCEPTION;
     }
 
-    public Apply getApplyBy(Integer isbn) {
+    public Apply getApplyBy(String isbn) {
         return applyRepository.findApplyByIsbn(isbn);
     }
 }

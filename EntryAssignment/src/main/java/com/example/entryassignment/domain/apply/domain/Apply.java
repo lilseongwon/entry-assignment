@@ -21,14 +21,14 @@ public class Apply {
     private String title;
 
     @Column(length = 20, nullable = false)
-    private Integer isbn;
+    private String isbn;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
     @Builder
-    public Apply(String title, Integer isbn, User user) {
+    public Apply(String title, String isbn, User user) {
         this.title = title;
         this.isbn = isbn;
         this.user = user;

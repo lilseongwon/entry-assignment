@@ -8,9 +8,9 @@ import java.util.Optional;
 
 public interface ApplyRepository extends JpaRepository<Apply, Long> {
 
-    Optional<Apply> findByIsbn(Integer isbn);
+    Optional<Apply> findByIsbn(String isbn);
 
-    Apply findApplyByIsbn(Integer isbn);
+    Apply findApplyByIsbn(String isbn);
 
     List<Apply> findAllByOrderById();
 

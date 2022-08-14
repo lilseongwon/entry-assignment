@@ -21,12 +21,12 @@ public class CheckBookExistInNaverService {
     private final String CLIENT_ID = System.getenv("CLIENT_ID");
     private final String CLIENT_SECRET = System.getenv("CLIENT_SECRET");
 
-    public void execute(String title, Integer isbn) {
+    public void execute(String title, String isbn) {
         final HttpHeaders headers = new HttpHeaders();
         URI uri = UriComponentsBuilder
                 .fromUriString("https://openapi.naver.com")
                 .path("/v1/search/book.json")
-                .queryParam("d_title", title)
+                .queryParam("query", title)
                 .queryParam("d_isbn", isbn)
                 .encode()
                 .build()
@@ -36,7 +36,7 @@ public class CheckBookExistInNaverService {
 
         final HttpEntity<String> entity = new HttpEntity<>(headers);
         if((Objects.requireNonNull(restTemplate.exchange(uri, HttpMethod.GET, entity,
-                QueryNaverBookInfoResponse.class).getBody()).getDisplay() < 1))
+                QueryNaverBookInfoResponse.class).getBody()).getDisplay() != 0))
             throw BookIsNotExistInNaverException.EXCEPTION;
     }
 }

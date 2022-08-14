@@ -18,14 +18,14 @@ public class Book {
     @Column(length = 60, nullable = false)
     private String title;
 
-    @Column(length = 200, nullable = false)
+    @Column(length = 300, nullable = false)
     private String picture;
 
     @Column(length = 20, nullable = false)
     private String author;
 
     @Column(length = 20, nullable = false)
-    private Integer isbn;
+    private String isbn;
 
     @Column(length = 20, nullable = false)
     private String publisher;
@@ -34,7 +34,7 @@ public class Book {
     private Genre genre;
 
     @Builder
-    public Book(String title, String picture, String author, Integer isbn, String publisher, Genre genre) {
+    public Book(String title, String picture, String author, String isbn, String publisher, Genre genre) {
         this.title = title;
         this.picture = picture;
         this.author = author;

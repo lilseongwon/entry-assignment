@@ -7,6 +7,6 @@ import lombok.Getter;
 @Builder
 public class QueryApplyInfoResponse {
     private final String title;
-    private final Integer isbn;
+    private final String isbn;
 
 }
