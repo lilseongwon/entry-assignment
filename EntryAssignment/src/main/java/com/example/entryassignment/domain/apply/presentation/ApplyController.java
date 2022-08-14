@@ -16,12 +16,12 @@ public class ApplyController {
     private final ApplyBookService applyBookService;
     private final QueryApplyListService queryApplyListService;
 
-    @PostMapping()
+    @PostMapping
     public String applyBook(@RequestBody @Valid ApplyBookRequest request) {
         return applyBookService.execute(request);
     }
 
-    @GetMapping()
+    @GetMapping
     public QueryApplyInfoListResponse queryApplyList() {
         return queryApplyListService.execute();
     }
