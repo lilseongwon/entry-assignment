@@ -19,7 +19,7 @@ public class ApplyBookService {
     private final ApplyFacade applyFacade;
     private final ApplyReposiroty applyReposiroty;
 
-    public String execute(ApplyBookRequest request) {
+    public void execute(ApplyBookRequest request) {
         bookFacade.checkBookExist(request.getIsbn());
 
         applyFacade.checkApplyExist(request.getIsbn());
@@ -33,6 +33,5 @@ public class ApplyBookService {
                         .user(user)
                         .build());
 
-        return "도서 신청이 완료되었습니다.";
     }
 }

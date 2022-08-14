@@ -15,10 +15,9 @@ public class MemberWithdrawlService {
     private final UserFacade userFacade;
 
     @Transactional
-    public String execute() {
+    public void execute() {
         User user = userFacade.getCurrentUser();
 
         userRepository.delete(user);
-        return "회원탈퇴가 완료되었습니다.";
     }
 }

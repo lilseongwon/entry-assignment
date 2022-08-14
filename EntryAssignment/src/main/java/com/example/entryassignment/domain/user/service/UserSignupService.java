@@ -18,7 +18,7 @@ public class UserSignupService {
     private final UserFacade userFacade;
 
     @Transactional
-    public String execute(UserSignupRequest request) {
+    public void execute(UserSignupRequest request) {
         userFacade.checkUserExist(request.getAccountId());
 
         userRepository.save(
@@ -27,6 +27,5 @@ public class UserSignupService {
                         .password(passwordEncoder.encode(request.getPassword()))
                         .name(request.getName())
                         .build());
-        return "회원가입이 완료되었습니다.";
     }
 }

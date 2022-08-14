@@ -12,7 +12,7 @@ public class AdminAddBookRequest {
 
     @Size(min = 1, max = 60, message = "책 제목은 Null을 허용하지 않으며, 1~60자 내외여야 합니다.")
     private String title;
-    
+
     private String picture;
 
     @Size(min = 1, max = 20, message = "저자는 Null을 허용하지 않으며, 1~20자 내외여야 합니다.")

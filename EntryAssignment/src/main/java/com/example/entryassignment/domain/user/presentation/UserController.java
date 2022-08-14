@@ -8,6 +8,7 @@ import com.example.entryassignment.domain.user.presentation.dto.response.QueryMy
 import com.example.entryassignment.domain.user.service.UpdatePasswordService;
 import com.example.entryassignment.domain.user.service.UserSignupService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,9 +22,10 @@ public class UserController {
     private final MemberWithdrawlService memberWithdrawlService;
     private final UpdatePasswordService updatePasswordService;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
-    public String userSignup(@RequestBody @Valid UserSignupRequest request) {
-        return userSignupService.execute(request);
+    public void userSignup(@RequestBody @Valid UserSignupRequest request) {
+        userSignupService.execute(request);
     }
 
     @GetMapping("/info")
@@ -31,14 +33,16 @@ public class UserController {
         return queryMyInformationService.execute();
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/delete")
-    public String memberWithdrawl() {
-        return memberWithdrawlService.execute();
+    public void memberWithdrawl() {
+        memberWithdrawlService.execute();
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping("/password")
-    public String UpdatePassword(@RequestBody @Valid UpdatePasswordRequest request) {
-        return updatePasswordService.execute(request);
+    public void UpdatePassword(@RequestBody @Valid UpdatePasswordRequest request) {
+        updatePasswordService.execute(request);
     }
 }
 

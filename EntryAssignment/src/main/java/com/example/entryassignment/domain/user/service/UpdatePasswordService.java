@@ -16,14 +16,12 @@ public class UpdatePasswordService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public String execute(UpdatePasswordRequest request) {
+    public void execute(UpdatePasswordRequest request) {
         User user = userFacade.getCurrentUser();
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw PasswordMismatchException.EXCEPTION;
         }
 
         user.changePassword(passwordEncoder.encode(request.getNewPassword()));
-
-        return "비밀번호 변경이 완료되었습니다.";
     }
 }

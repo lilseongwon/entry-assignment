@@ -19,7 +19,7 @@ public class AdminAddBookService {
     private final ApplyReposiroty applyReposiroty;
     private final ApplyFacade applyFacade;
 
-    public String execute(AdminAddBookRequest request) {
+    public void execute(AdminAddBookRequest request) {
 
         adminFacade.checkPermission();
 
@@ -39,6 +39,5 @@ public class AdminAddBookService {
             applyReposiroty.delete(applyFacade.getApplyBy(request.getIsbn()));
         }
 
-        return "도서 추가가 완료되었습니다.";
     }
 }

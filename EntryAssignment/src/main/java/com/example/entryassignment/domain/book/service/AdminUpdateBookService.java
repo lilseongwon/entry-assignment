@@ -15,7 +15,7 @@ public class AdminUpdateBookService {
     private final BookFacade bookFacade;
 
     @Transactional
-    public String execute(AdminUpdateBookRequest request) {
+    public void execute(AdminUpdateBookRequest request) {
         adminFacade.checkPermission();
 
         bookFacade.getBookByIsbn(request.getIsbn())
@@ -23,6 +23,5 @@ public class AdminUpdateBookService {
                         request.getIsbn(), request.getPublisher(), request.getGenre());
         ;
 
-        return "도서 수정이 완료되었습니다.";
     }
 }

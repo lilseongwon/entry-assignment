@@ -6,6 +6,7 @@ import com.example.entryassignment.domain.book.presentation.dto.response.QueryBo
 import com.example.entryassignment.domain.book.presentation.dto.response.QueryNaverBookInfoResponse;
 import com.example.entryassignment.domain.book.service.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,19 +21,22 @@ public class BookController {
     private final QueryNaverBookInfoService queryNaverBookInfoService;
     private final QueryBookInfoService queryBookInfoService;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/add")
-    public String addBook(@RequestBody @Valid AdminAddBookRequest request) {
-        return adminAddBookService.execute(request);
+    public void addBook(@RequestBody @Valid AdminAddBookRequest request) {
+        adminAddBookService.execute(request);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping("/update")
-    public String updateBook(@RequestBody @Valid AdminUpdateBookRequest request) {
-        return adminUpdateBookService.execute(request);
+    public void updateBook(@RequestBody @Valid AdminUpdateBookRequest request) {
+        adminUpdateBookService.execute(request);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/delete/{book-id}")
-    public String deleteBook(@PathVariable(name = "book-id") Long id) {
-        return adminDeleteBookService.execute(id);
+    public void deleteBook(@PathVariable(name = "book-id") Long id) {
+        adminDeleteBookService.execute(id);
     }
 
     @GetMapping("/naverbook/{keyword}")

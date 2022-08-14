@@ -5,6 +5,7 @@ import com.example.entryassignment.domain.apply.service.QueryApplyListService;
 import com.example.entryassignment.domain.apply.presentation.dto.request.ApplyBookRequest;
 import com.example.entryassignment.domain.apply.presentation.dto.response.QueryApplyInfoListResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -16,9 +17,10 @@ public class ApplyController {
     private final ApplyBookService applyBookService;
     private final QueryApplyListService queryApplyListService;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public String applyBook(@RequestBody @Valid ApplyBookRequest request) {
-        return applyBookService.execute(request);
+    public void applyBook(@RequestBody @Valid ApplyBookRequest request) {
+        applyBookService.execute(request);
     }
 
     @GetMapping

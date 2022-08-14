@@ -14,11 +14,10 @@ public class AdminDeleteBookService {
     private final BookFacade bookFacade;
     private final BookRepository bookRepository;
 
-    public String execute(Long id) {
+    public void execute(Long id) {
         adminFacade.checkPermission();
 
         bookRepository.delete(bookFacade.getBookById(id));
 
-        return "도서 삭제가 완료되었습니다.";
     }
 }
