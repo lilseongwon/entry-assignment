@@ -5,8 +5,6 @@ import com.example.entryassignment.domain.apply.domain.repository.ApplyRepositor
 import com.example.entryassignment.domain.apply.facade.ApplyFacade;
 import com.example.entryassignment.domain.book.facade.BookFacade;
 import com.example.entryassignment.domain.apply.presentation.dto.request.ApplyBookRequest;
-import com.example.entryassignment.domain.user.domain.User;
-import com.example.entryassignment.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +13,6 @@ import org.springframework.stereotype.Service;
 public class ApplyBookService {
 
     private final BookFacade bookFacade;
-    private final UserFacade userFacade;
     private final ApplyFacade applyFacade;
     private final CheckBookExistInNaverService checkBookExistInNaverService;
     private final ApplyRepository applyRepository;
@@ -27,13 +24,10 @@ public class ApplyBookService {
 
         applyFacade.checkApplyExist(request.getIsbn());
 
-        User user = userFacade.getCurrentUser();
-
         applyRepository.save(
                 Apply.builder()
                         .title(request.getTitle())
                         .isbn(request.getIsbn())
-                        .user(user)
                         .build());
 
     }

@@ -23,14 +23,9 @@ public class Apply {
     @Column(length = 20, nullable = false)
     private String isbn;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", nullable = false)
-    private User user;
-
     @Builder
-    public Apply(String title, String isbn, User user) {
+    public Apply(String title, String isbn) {
         this.title = title;
         this.isbn = isbn;
-        this.user = user;
     }
 }

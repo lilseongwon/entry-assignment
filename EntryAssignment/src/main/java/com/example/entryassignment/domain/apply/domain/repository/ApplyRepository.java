@@ -13,5 +13,4 @@ public interface ApplyRepository extends JpaRepository<Apply, Long> {
     Apply findApplyByIsbn(String isbn);
 
     List<Apply> findAllByOrderById();
-
 }

@@ -36,7 +36,7 @@ public class CheckBookExistInNaverService {
 
         final HttpEntity<String> entity = new HttpEntity<>(headers);
         if((Objects.requireNonNull(restTemplate.exchange(uri, HttpMethod.GET, entity,
-                QueryNaverBookInfoResponse.class).getBody()).getDisplay() != 1))
+                QueryNaverBookInfoResponse.class).getBody()).getDisplay() == 0))
             throw BookIsNotExistInNaverException.EXCEPTION;
     }
 }
