@@ -19,9 +19,7 @@ public class AdminUpdateBookService {
         adminFacade.checkPermission();
 
         bookFacade.getBookByIsbn(request.getIsbn())
-                .update(request.getTitle(), request.getPicture(), request.getAuthor(),
-                        request.getIsbn(), request.getPublisher(), request.getGenre());
-        ;
-
+                .update(request.getPicture(), request.getAuthor(),
+                        request.getPublisher(), request.getGenre());
     }
 }

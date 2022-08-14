@@ -10,8 +10,6 @@ import javax.validation.constraints.Size;
 @Getter
 @NoArgsConstructor
 public class AdminUpdateBookRequest {
-    @Size(min = 1, max = 60, message = "책 제목은 Null을 허용하지 않으며, 1~60자 내외여야 합니다.")
-    private String title;
 
     @Size(max = 200, message = "사진 링크는 200자 이하여야 합니다.")
     private String picture;
