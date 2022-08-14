@@ -1,6 +1,7 @@
 package com.example.entryassignment.domain.book.service;
 
 import com.example.entryassignment.domain.apply.domain.Apply;
+import com.example.entryassignment.domain.apply.facade.ApplyFacade;
 import com.example.entryassignment.domain.book.domain.Book;
 import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
 import com.example.entryassignment.domain.book.domain.repository.BookRepository;
@@ -17,6 +18,7 @@ public class AdminAddBookService {
     private final BookFacade bookFacade;
     private final BookRepository bookRepository;
     private final ApplyReposiroty applyReposiroty;
+    private final ApplyFacade applyFacade;
 
     public String execute(AdminAddBookRequest request){
 
@@ -35,9 +37,7 @@ public class AdminAddBookService {
                         .build());
 
         if (applyReposiroty.findByIsbn(request.getIsbn()).isPresent()){
-            Apply apply = applyReposiroty.findApplyListByIsbn(request.getIsbn());
-
-            applyReposiroty.delete(apply);
+            applyReposiroty.delete(applyFacade.getApplyBy(request.getIsbn()));
         }
 
         return "도서 추가가 완료되었습니다.";
