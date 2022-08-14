@@ -10,7 +10,7 @@ public interface ApplyReposiroty extends JpaRepository<Apply, Long> {
 
     Optional<Apply> findByIsbn(String isbn);
 
-    Apply findApplyListByIsbn(String isbn);
+    Apply findApplyByIsbn(String isbn);
 
     List<Apply> findAllByOrderById();
 
