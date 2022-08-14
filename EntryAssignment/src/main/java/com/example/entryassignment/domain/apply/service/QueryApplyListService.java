@@ -1,7 +1,7 @@
 package com.example.entryassignment.domain.apply.service;
 
 import com.example.entryassignment.domain.apply.domain.Apply;
-import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
+import com.example.entryassignment.domain.apply.domain.repository.ApplyRepository;
 import com.example.entryassignment.domain.apply.presentation.dto.response.QueryApplyInfoListResponse;
 import com.example.entryassignment.domain.apply.presentation.dto.response.QueryApplyInfoResponse;
 import lombok.RequiredArgsConstructor;
@@ -15,11 +15,11 @@ import java.util.stream.Collectors;
 @Service
 public class QueryApplyListService {
 
-    private final ApplyReposiroty applyReposiroty;
+    private final ApplyRepository applyRepository;
 
     @Transactional(readOnly = true)
     public QueryApplyInfoListResponse execute() {
-        List<QueryApplyInfoResponse> applyList = applyReposiroty.findAllByOrderById()
+        List<QueryApplyInfoResponse> applyList = applyRepository.findAllByOrderById()
                 .stream()
                 .map(this::applyBuilder)
                 .collect(Collectors.toList());
