@@ -1,7 +1,7 @@
 package com.example.entryassignment.domain.apply.service;
 
 import com.example.entryassignment.domain.apply.domain.Apply;
-import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
+import com.example.entryassignment.domain.apply.domain.repository.ApplyRepository;
 import com.example.entryassignment.domain.apply.facade.ApplyFacade;
 import com.example.entryassignment.domain.book.facade.BookFacade;
 import com.example.entryassignment.domain.apply.presentation.dto.request.ApplyBookRequest;
@@ -17,16 +17,19 @@ public class ApplyBookService {
     private final BookFacade bookFacade;
     private final UserFacade userFacade;
     private final ApplyFacade applyFacade;
-    private final ApplyReposiroty applyReposiroty;
+    private final CheckBookExistInNaverService checkBookExistInNaverService;
+    private final ApplyRepository applyRepository;
 
     public void execute(ApplyBookRequest request) {
+        checkBookExistInNaverService.execute(request.getTitle(), request.getIsbn());
+
         bookFacade.checkBookExist(request.getIsbn());
 
         applyFacade.checkApplyExist(request.getIsbn());
 
         User user = userFacade.getCurrentUser();
 
-        applyReposiroty.save(
+        applyRepository.save(
                 Apply.builder()
                         .title(request.getTitle())
                         .isbn(request.getIsbn())

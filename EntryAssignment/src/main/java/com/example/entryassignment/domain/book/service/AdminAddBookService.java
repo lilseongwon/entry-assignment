@@ -2,6 +2,7 @@ package com.example.entryassignment.domain.book.service;
 
 import com.example.entryassignment.domain.apply.domain.repository.ApplyRepository;
 import com.example.entryassignment.domain.apply.facade.ApplyFacade;
+import com.example.entryassignment.domain.apply.service.CheckBookExistInNaverService;
 import com.example.entryassignment.domain.book.domain.Book;
 import com.example.entryassignment.domain.book.domain.repository.BookRepository;
 import com.example.entryassignment.domain.book.facade.AdminFacade;
@@ -18,10 +19,13 @@ public class AdminAddBookService {
     private final BookRepository bookRepository;
     private final ApplyRepository applyRepository;
     private final ApplyFacade applyFacade;
+    private final CheckBookExistInNaverService checkBookExistInNaverService;
 
     public void execute(AdminAddBookRequest request) {
 
         adminFacade.checkPermission();
+
+        checkBookExistInNaverService.execute(request.getTitle(), request.getIsbn());
 
         bookFacade.checkBookExist(request.getIsbn());
 

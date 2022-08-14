@@ -20,6 +20,8 @@ public enum ErrorCode {
 
     BOOK_IS_NOT_EXIST(404, "Book is Not Exist"),
 
+    BOOK_IS_NOT_EXIST_IN_NAVER(404, "Book is Not Exist In Naver"),
+
     REFRESH_TOKEN_NOT_FOUND(404, "RefreshToken Not Found"),
 
     USER_EXIST(409, "User Exist"),
