@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class DeleteBookService {
+public class AdminDeleteBookService {
 
     private final AdminFacade adminFacade;
     private final BookFacade bookFacade;

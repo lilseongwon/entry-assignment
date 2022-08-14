@@ -1,8 +1,8 @@
 package com.example.entryassignment.domain.apply.service;
 
-import com.example.entryassignment.domain.apply.domain.ApplyList;
-import com.example.entryassignment.domain.apply.domain.repository.ApplyListReposiroty;
-import com.example.entryassignment.domain.book.facade.ApplyListFacade;
+import com.example.entryassignment.domain.apply.domain.Apply;
+import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
+import com.example.entryassignment.domain.apply.facade.ApplyFacade;
 import com.example.entryassignment.domain.book.facade.BookFacade;
 import com.example.entryassignment.domain.book.presentation.dto.request.ApplyBookRequest;
 import com.example.entryassignment.domain.user.domain.User;
@@ -16,18 +16,18 @@ public class ApplyBookService {
 
     private final BookFacade bookFacade;
     private final UserFacade userFacade;
-    private final ApplyListFacade applyListFacade;
-    private final ApplyListReposiroty applyListReposiroty;
+    private final ApplyFacade applyFacade;
+    private final ApplyReposiroty applyReposiroty;
 
     public String execute(ApplyBookRequest request) {
         bookFacade.checkBookExist(request.getIsbn());
 
-        applyListFacade.checkApplyExist(request.getIsbn());
+        applyFacade.checkApplyExist(request.getIsbn());
 
         User user = userFacade.getCurrentUser();
 
-        applyListReposiroty.save(
-                ApplyList.builder()
+        applyReposiroty.save(
+                Apply.builder()
                         .title(request.getTitle())
                         .isbn(request.getIsbn())
                         .user(user)

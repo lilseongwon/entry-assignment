@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class ApplyList {
+public class Apply {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class ApplyList {
     private User user;
 
     @Builder
-    public ApplyList(String title, String isbn, User user){
+    public Apply(String title, String isbn, User user){
         this.title = title;
         this.isbn = isbn;
         this.user = user;

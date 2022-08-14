@@ -1,8 +1,8 @@
 package com.example.entryassignment.domain.book.service;
 
-import com.example.entryassignment.domain.apply.domain.ApplyList;
+import com.example.entryassignment.domain.apply.domain.Apply;
 import com.example.entryassignment.domain.book.domain.Book;
-import com.example.entryassignment.domain.apply.domain.repository.ApplyListReposiroty;
+import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
 import com.example.entryassignment.domain.book.domain.repository.BookRepository;
 import com.example.entryassignment.domain.book.facade.AdminFacade;
 import com.example.entryassignment.domain.book.facade.BookFacade;
@@ -16,7 +16,7 @@ public class AdminAddBookService {
     private final AdminFacade adminFacade;
     private final BookFacade bookFacade;
     private final BookRepository bookRepository;
-    private final ApplyListReposiroty applyListReposiroty;
+    private final ApplyReposiroty applyReposiroty;
 
     public String execute(AdminAddBookRequest request){
 
@@ -34,10 +34,10 @@ public class AdminAddBookService {
                         .genre(request.getGenre())
                         .build());
 
-        if (applyListReposiroty.findByIsbn(request.getIsbn()).isPresent()){
-            ApplyList applyList = applyListReposiroty.findApplyListByIsbn(request.getIsbn());
+        if (applyReposiroty.findByIsbn(request.getIsbn()).isPresent()){
+            Apply apply = applyReposiroty.findApplyListByIsbn(request.getIsbn());
 
-            applyListReposiroty.delete(applyList);
+            applyReposiroty.delete(apply);
         }
 
         return "도서 추가가 완료되었습니다.";

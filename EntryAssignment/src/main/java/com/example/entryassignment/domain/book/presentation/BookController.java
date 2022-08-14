@@ -1,11 +1,7 @@
 package com.example.entryassignment.domain.book.presentation;
 
-import com.example.entryassignment.domain.apply.service.ApplyBookService;
-import com.example.entryassignment.domain.apply.service.QueryApplyListService;
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminAddBookRequest;
 import com.example.entryassignment.domain.book.presentation.dto.request.AdminUpdateBookRequest;
-import com.example.entryassignment.domain.book.presentation.dto.request.ApplyBookRequest;
-import com.example.entryassignment.domain.book.presentation.dto.response.QueryApplyInfoListResponse;
 import com.example.entryassignment.domain.book.presentation.dto.response.QueryBookInfoListResponse;
 import com.example.entryassignment.domain.book.presentation.dto.response.QueryNaverBookInfoResponse;
 import com.example.entryassignment.domain.book.service.*;
@@ -20,7 +16,7 @@ import javax.validation.Valid;
 public class BookController {
     private final AdminAddBookService adminAddBookService;
     private final AdminUpdateBookService adminUpdateBookService;
-    private final DeleteBookService deleteBookService;
+    private final AdminDeleteBookService adminDeleteBookService;
     private final QueryNaverBookInfoService queryNaverBookInfoService;
     private final QueryBookInfoService queryBookInfoService;
 
@@ -36,7 +32,7 @@ public class BookController {
 
     @DeleteMapping("/delete/{book-id}")
     public String deleteBook(@PathVariable(name = "book-id") Long id) {
-        return deleteBookService.execute(id);
+        return adminDeleteBookService.execute(id);
     }
 
     @GetMapping("/naverbook/{keyword}")

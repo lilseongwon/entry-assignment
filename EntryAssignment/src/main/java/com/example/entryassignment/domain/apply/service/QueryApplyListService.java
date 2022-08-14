@@ -1,7 +1,7 @@
 package com.example.entryassignment.domain.apply.service;
 
-import com.example.entryassignment.domain.apply.domain.ApplyList;
-import com.example.entryassignment.domain.apply.domain.repository.ApplyListReposiroty;
+import com.example.entryassignment.domain.apply.domain.Apply;
+import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
 import com.example.entryassignment.domain.book.presentation.dto.response.QueryApplyInfoListResponse;
 import com.example.entryassignment.domain.book.presentation.dto.response.QueryApplyInfoResponse;
 import lombok.RequiredArgsConstructor;
@@ -15,11 +15,11 @@ import java.util.stream.Collectors;
 @Service
 public class QueryApplyListService {
 
-    private final ApplyListReposiroty applyListReposiroty;
+    private final ApplyReposiroty applyReposiroty;
 
     @Transactional(readOnly = true)
     public QueryApplyInfoListResponse execute() {
-        List<QueryApplyInfoResponse> applyList = applyListReposiroty.findAllByOrderById()
+        List<QueryApplyInfoResponse> applyList = applyReposiroty.findAllByOrderById()
                 .stream()
                 .map(this::applyBuilder)
                 .collect(Collectors.toList());
@@ -27,10 +27,10 @@ public class QueryApplyListService {
         return new QueryApplyInfoListResponse(applyList);
     }
 
-    private QueryApplyInfoResponse applyBuilder(ApplyList applyList) {
+    private QueryApplyInfoResponse applyBuilder(Apply apply) {
         return QueryApplyInfoResponse.builder()
-                .title(applyList.getTitle())
-                .isbn(applyList.getIsbn())
+                .title(apply.getTitle())
+                .isbn(apply.getIsbn())
                 .build();
     }
 }
