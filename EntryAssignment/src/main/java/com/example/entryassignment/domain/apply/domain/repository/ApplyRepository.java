@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface ApplyReposiroty extends JpaRepository<Apply, Long> {
+public interface ApplyRepository extends JpaRepository<Apply, Long> {
 
-    Optional<Apply> findByIsbn(String isbn);
+    Optional<Apply> findByIsbn(Integer isbn);
 
-    Apply findApplyByIsbn(String isbn);
+    Apply findApplyByIsbn(Integer isbn);
 
     List<Apply> findAllByOrderById();
 

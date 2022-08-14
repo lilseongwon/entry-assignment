@@ -13,12 +13,12 @@ public class BookFacade {
 
     private final BookRepository bookRepository;
 
-    public void checkBookExist(String isbn) {
+    public void checkBookExist(Integer isbn) {
         if (bookRepository.findByIsbn(isbn).isPresent())
             throw AlreadyBookExistExcpetion.EXCPETION;
     }
 
-    public Book getBookByIsbn(String isbn) {
+    public Book getBookByIsbn(Integer isbn) {
         return bookRepository.findByIsbn(isbn)
                 .orElseThrow(() -> BookIsNotExistException.EXCEPTION);
     }

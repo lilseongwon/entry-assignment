@@ -1,8 +1,8 @@
 package com.example.entryassignment.domain.book.service;
 
+import com.example.entryassignment.domain.apply.domain.repository.ApplyRepository;
 import com.example.entryassignment.domain.apply.facade.ApplyFacade;
 import com.example.entryassignment.domain.book.domain.Book;
-import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
 import com.example.entryassignment.domain.book.domain.repository.BookRepository;
 import com.example.entryassignment.domain.book.facade.AdminFacade;
 import com.example.entryassignment.domain.book.facade.BookFacade;
@@ -16,7 +16,7 @@ public class AdminAddBookService {
     private final AdminFacade adminFacade;
     private final BookFacade bookFacade;
     private final BookRepository bookRepository;
-    private final ApplyReposiroty applyReposiroty;
+    private final ApplyRepository applyRepository;
     private final ApplyFacade applyFacade;
 
     public void execute(AdminAddBookRequest request) {
@@ -35,8 +35,8 @@ public class AdminAddBookService {
                         .genre(request.getGenre())
                         .build());
 
-        if (applyReposiroty.findByIsbn(request.getIsbn()).isPresent()) {
-            applyReposiroty.delete(applyFacade.getApplyBy(request.getIsbn()));
+        if (applyRepository.findByIsbn(request.getIsbn()).isPresent()) {
+            applyRepository.delete(applyFacade.getApplyBy(request.getIsbn()));
         }
 
     }

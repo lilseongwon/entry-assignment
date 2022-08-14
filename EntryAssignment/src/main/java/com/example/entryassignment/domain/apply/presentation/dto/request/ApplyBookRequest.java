@@ -13,5 +13,5 @@ public class ApplyBookRequest {
     private String title;
 
     @Size(min = 10, max = 20, message = "ISBN은 Null과 공백을 허용하지 않으며, 10~20자 이하여야 합니다.")
-    private String isbn;
+    private Integer isbn;
 }

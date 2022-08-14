@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -34,8 +35,16 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests()
 
+                //user
                 .antMatchers("/user/signup").permitAll()
                 .antMatchers("/user/token").permitAll()
+
+                //book
+                .antMatchers("/book/info/{keyword}").permitAll()
+                .antMatchers("/book/naverbook/{keyword}").permitAll()
+
+                //apply
+                .antMatchers(HttpMethod.GET, "/apply").permitAll()
 
                 .anyRequest().authenticated()
 

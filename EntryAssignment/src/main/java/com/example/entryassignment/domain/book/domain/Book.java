@@ -25,7 +25,7 @@ public class Book {
     private String author;
 
     @Column(length = 20, nullable = false)
-    private String isbn;
+    private Integer isbn;
 
     @Column(length = 20, nullable = false)
     private String publisher;
@@ -34,7 +34,7 @@ public class Book {
     private Genre genre;
 
     @Builder
-    public Book(String title, String picture, String author, String isbn, String publisher, Genre genre) {
+    public Book(String title, String picture, String author, Integer isbn, String publisher, Genre genre) {
         this.title = title;
         this.picture = picture;
         this.author = author;
@@ -43,7 +43,7 @@ public class Book {
         this.genre = genre;
     }
 
-    public void update(String title, String picture, String author, String isbn, String publisher, Genre genre) {
+    public void update(String title, String picture, String author, Integer isbn, String publisher, Genre genre) {
         this.title = title;
         this.picture = picture;
         this.author = author;
