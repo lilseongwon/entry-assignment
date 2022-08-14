@@ -2,8 +2,8 @@ package com.example.entryassignment.domain.apply.service;
 
 import com.example.entryassignment.domain.apply.domain.Apply;
 import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
-import com.example.entryassignment.domain.book.presentation.dto.response.QueryApplyInfoListResponse;
-import com.example.entryassignment.domain.book.presentation.dto.response.QueryApplyInfoResponse;
+import com.example.entryassignment.domain.apply.presentation.dto.response.QueryApplyInfoListResponse;
+import com.example.entryassignment.domain.apply.presentation.dto.response.QueryApplyInfoResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -4,7 +4,7 @@ import com.example.entryassignment.domain.apply.domain.Apply;
 import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
 import com.example.entryassignment.domain.apply.facade.ApplyFacade;
 import com.example.entryassignment.domain.book.facade.BookFacade;
-import com.example.entryassignment.domain.book.presentation.dto.request.ApplyBookRequest;
+import com.example.entryassignment.domain.apply.presentation.dto.request.ApplyBookRequest;
 import com.example.entryassignment.domain.user.domain.User;
 import com.example.entryassignment.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,5 @@
 package com.example.entryassignment.domain.book.service;
 
-import com.example.entryassignment.domain.apply.domain.Apply;
 import com.example.entryassignment.domain.apply.facade.ApplyFacade;
 import com.example.entryassignment.domain.book.domain.Book;
 import com.example.entryassignment.domain.apply.domain.repository.ApplyReposiroty;
