@@ -42,6 +42,7 @@ public class Book {
         this.publisher = publisher;
         this.genre = genre;
     }
+
     public void update(String title, String picture, String author, String isbn, String publisher, Genre genre) {
         this.title = title;
         this.picture = picture;

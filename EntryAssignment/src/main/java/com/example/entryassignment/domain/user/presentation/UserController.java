@@ -35,8 +35,9 @@ public class UserController {
     public String memberWithdrawl() {
         return memberWithdrawlService.execute();
     }
+
     @PatchMapping("/password")
-    public String UpdatePassword(@RequestBody @Valid UpdatePasswordRequest request){
+    public String UpdatePassword(@RequestBody @Valid UpdatePasswordRequest request) {
         return updatePasswordService.execute(request);
     }
 }

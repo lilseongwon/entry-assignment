@@ -13,17 +13,17 @@ public class BookFacade {
 
     private final BookRepository bookRepository;
 
-    public void checkBookExist(String isbn){
-        if(bookRepository.findByIsbn(isbn).isPresent())
+    public void checkBookExist(String isbn) {
+        if (bookRepository.findByIsbn(isbn).isPresent())
             throw AlreadyBookExistExcpetion.EXCPETION;
     }
 
-    public Book getBookByIsbn(String isbn){
+    public Book getBookByIsbn(String isbn) {
         return bookRepository.findByIsbn(isbn)
                 .orElseThrow(() -> BookIsNotExistException.EXCEPTION);
     }
 
-    public Book getBookById(Long id){
+    public Book getBookById(Long id) {
         return bookRepository.findById(id)
                 .orElseThrow(() -> BookIsNotExistException.EXCEPTION);
     }

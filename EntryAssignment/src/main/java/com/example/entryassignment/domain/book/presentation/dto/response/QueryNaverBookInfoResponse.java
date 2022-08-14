@@ -9,7 +9,7 @@ public class QueryNaverBookInfoResponse {
     private Item[] items;
 
     @Data
-    static class Item{
+    static class Item {
         private String title;
         private String image;
         private String author;

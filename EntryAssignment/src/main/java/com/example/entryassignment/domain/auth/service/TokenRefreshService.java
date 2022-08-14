@@ -20,7 +20,6 @@ public class TokenRefreshService {
     private final JwtProperties jwtProperties;
 
 
-
     @Transactional
     public TokenResponse execute(String refreshToken) {
         return reIssue(refreshToken);

@@ -15,12 +15,13 @@ public class AdminUpdateBookService {
     private final BookFacade bookFacade;
 
     @Transactional
-    public String execute(AdminUpdateBookRequest request){
+    public String execute(AdminUpdateBookRequest request) {
         adminFacade.checkPermission();
 
         bookFacade.getBookByIsbn(request.getIsbn())
                 .update(request.getTitle(), request.getPicture(), request.getAuthor(),
-                        request.getIsbn(), request.getPublisher(), request.getGenre());;
+                        request.getIsbn(), request.getPublisher(), request.getGenre());
+        ;
 
         return "도서 수정이 완료되었습니다.";
     }

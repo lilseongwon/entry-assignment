@@ -28,7 +28,7 @@ public class Apply {
     private User user;
 
     @Builder
-    public Apply(String title, String isbn, User user){
+    public Apply(String title, String isbn, User user) {
         this.title = title;
         this.isbn = isbn;
         this.user = user;

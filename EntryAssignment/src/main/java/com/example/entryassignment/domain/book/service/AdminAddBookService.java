@@ -19,7 +19,7 @@ public class AdminAddBookService {
     private final ApplyReposiroty applyReposiroty;
     private final ApplyFacade applyFacade;
 
-    public String execute(AdminAddBookRequest request){
+    public String execute(AdminAddBookRequest request) {
 
         adminFacade.checkPermission();
 
@@ -35,7 +35,7 @@ public class AdminAddBookService {
                         .genre(request.getGenre())
                         .build());
 
-        if (applyReposiroty.findByIsbn(request.getIsbn()).isPresent()){
+        if (applyReposiroty.findByIsbn(request.getIsbn()).isPresent()) {
             applyReposiroty.delete(applyFacade.getApplyBy(request.getIsbn()));
         }
 

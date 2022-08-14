@@ -13,8 +13,8 @@ public class AdminFacade {
 
     private final UserFacade userFacade;
 
-    public void checkPermission(){
-        if(!(Objects.equals(userFacade.getCurrentUser().getAccountId(), System.getenv("ADMIN"))))
+    public void checkPermission() {
+        if (!(Objects.equals(userFacade.getCurrentUser().getAccountId(), System.getenv("ADMIN"))))
             throw NoPermissionException.EXCEPTION;
     }
 }

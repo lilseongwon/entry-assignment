@@ -14,7 +14,7 @@ public class AdminDeleteBookService {
     private final BookFacade bookFacade;
     private final BookRepository bookRepository;
 
-    public String execute(Long id){
+    public String execute(Long id) {
         adminFacade.checkPermission();
 
         bookRepository.delete(bookFacade.getBookById(id));

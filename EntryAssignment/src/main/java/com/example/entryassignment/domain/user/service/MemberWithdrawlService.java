@@ -15,7 +15,7 @@ public class MemberWithdrawlService {
     private final UserFacade userFacade;
 
     @Transactional
-    public String execute(){
+    public String execute() {
         User user = userFacade.getCurrentUser();
 
         userRepository.delete(user);

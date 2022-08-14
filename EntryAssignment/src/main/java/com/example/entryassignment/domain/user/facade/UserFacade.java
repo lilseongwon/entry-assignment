@@ -19,7 +19,7 @@ public class UserFacade {
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 
-    public void checkUserExist(String accountId){
+    public void checkUserExist(String accountId) {
         if (userRepository.findByAccountId(accountId).isPresent())
             throw UserExistException.EXCEPTION;
     }
