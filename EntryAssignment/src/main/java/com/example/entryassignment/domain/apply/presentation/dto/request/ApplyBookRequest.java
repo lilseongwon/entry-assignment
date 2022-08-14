@@ -1,4 +1,4 @@
-package com.example.entryassignment.domain.book.presentation.dto.request;
+package com.example.entryassignment.domain.apply.presentation.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
