@@ -1,4 +1,4 @@
-package com.example.entryassignment.global.exception;
+package com.example.entryassignment.domain.auth.exception;
 
 import com.example.entryassignment.global.error.CustomException;
 import com.example.entryassignment.global.error.ErrorCode;
