@@ -19,9 +19,8 @@ public class QueryBookInfoService {
 
     @Transactional(readOnly = true)
     public QueryBookInfoListResponse execute(String keyword) {
-        List<QueryBookInfoResponse> bookList = bookRepository.findAllByOrderByTitle()
+        List<QueryBookInfoResponse> bookList = bookRepository.findAllByTitleContains(keyword)
                 .stream()
-                .filter(book -> keyword.contains(book.getTitle()))
                 .map(this::bookBuilder)
                 .collect(Collectors.toList());
 
